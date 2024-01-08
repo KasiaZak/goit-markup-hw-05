@@ -24,7 +24,7 @@
             Web<span class="highlight-dark">Studio</span></a
           >
           <ul class="menu-nav list">
-            <li>
+            <li class="link-active">
               <a class="menu-nav-item link" href="./index.html">Studio</a>
             </li>
             <li>
@@ -57,7 +57,9 @@
           <h1 class="header-solutions">
             Effective Solutions for Your Business
           </h1>
-          <button class="btn-order" type="button">Order Service</button>
+          <button class="btn-order" type="button" data-modal-open>
+            Order Service
+          </button>
         </div>
       </section>
       <section class="goals-section section">
@@ -417,5 +419,11 @@
         </div>
       </footer>
     </main>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button t data-modal-close>X</button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
