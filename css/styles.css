@@ -49,6 +49,9 @@ body {
 .link {
   text-decoration: none;
 }
+.link-active {
+  position: relative;
+}
 .header {
   border-bottom: 1px solid var(--cornflower);
   box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
@@ -89,14 +92,32 @@ body {
   color: var(--ocean);
 }
 
-.link-active::after {
+.menu-nav-item::after {
   content: ' ';
-  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
   height: 4px;
   border-radius: 2px;
   background-color: var(--ocean);
   display: flex;
 }
+.link-active {
+  position: relative;
+  color: #404bbf;
+}
+
+.link-active::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  background-color: #404bbf;
+  border-radius: 2px;
+}
+
 .address {
   font-style: normal;
   display: flex;
@@ -187,9 +208,7 @@ body {
   margin-top: 48px;
   margin-right: auto;
   margin-left: auto;
-  transition-property: color, background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-order:hover,
@@ -355,7 +374,7 @@ body {
   font-family: 'Roboto', sans-serif;
   padding: 12px 24px;
   border: 1px solid #e7e9fc;
-  transition-property: color, background-color, border, box-shadow;
+  transition-property: color, background-color, border-color, box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -365,9 +384,10 @@ body {
 .btn-menu:active {
   color: var(--white);
   background-color: var(--ocean);
-  border: 1px solid transparent;
+  border-color: transparent;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
     0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
+  transform: translateY(0%);
 }
 .photos {
   display: flex;
@@ -387,10 +407,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   width: 100%;
   height: 100%;
-  background-color: #3f51b5;
+  font-size: 16px;
   transform: translatey(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -399,8 +419,8 @@ body {
   transform: translatey(0);
 } */
 
-.overlay p {
-  max-width: 296px;
+.overlay-paragraph {
+  /* max-width: 296px; */
   margin: 0 auto;
   color: var(--cloud);
   font-family: Roboto;
@@ -408,7 +428,11 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.32p;
+  letter-spacing: 0.02em;
+  padding: 40px 32px;
+  background-color: var(--iris);
+  width: 100%;
+  height: 100%;
 }
 
 .photos-link {
@@ -474,15 +498,14 @@ body {
   justify-content: center;
   border-radius: 4px;
   border: 1px solid var(--LIGHT-SLATE, #8e8f99);
-  transition-property: color, border;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-icons-link:hover,
 .customers-icons-link:focus {
   color: var(--ocean);
-  border: 1px solid var(--ocean);
+  border-color: var(--ocean);
 }
 
 .icon-customer {
@@ -584,11 +607,45 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale (1);
+  transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding-top: 24px;
+  padding-right: 24px;
 }
 .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cornflower);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  border: none;
+  background-color: #404bbf;
+}
+
+.icon-close {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.icon-close:hover,
+.icon-close:focus {
+  fill: #ffffff;
 }

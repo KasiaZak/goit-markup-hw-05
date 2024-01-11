@@ -24,8 +24,10 @@
             Web<span class="highlight-dark">Studio</span></a
           >
           <ul class="menu-nav list">
-            <li class="link-active">
-              <a class="menu-nav-item link" href="./index.html">Studio</a>
+            <li>
+              <a class="menu-nav-item link-active link" href="./index.html"
+                >Studio</a
+              >
             </li>
             <li>
               <a class="menu-nav-item link" href="./portfolio.html"
@@ -418,12 +420,16 @@
           </div>
         </div>
       </footer>
-    </main>
-    <div class="backdrop is-hidden" data-modal>
-      <div class="modal">
-        <button t data-modal-close>X</button>
+      <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+          <button class="close-btn" type="button" data-modal-close>
+            <svg width="8" height="8" class="icon-close">
+              <use href="./images/icons.svg#icon-close-btn"></use>
+            </svg>
+          </button>
+        </div>
       </div>
-    </div>
-    <script src="./js/modal.js"></script>
+      <script src="./js/modal.js"></script>
+    </main>
   </body>
 </html>
